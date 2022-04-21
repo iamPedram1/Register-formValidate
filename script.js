@@ -47,7 +47,7 @@ const button = domSelect(".btn").addEventListener("click", (e) => {
   // Check if Username is more than 3 and less than 15 Character
   if (inputUsername.length < 3) {
     if (domSelectAll(".username > .text-danger").length < 1) {
-      newElm("Must be more than 3 character", "text-danger", ".username");
+      newElm("*Must be more than 3 character", "text-danger", ".username");
     }
   } else {
     errorMsgRemover(".username");
@@ -56,14 +56,14 @@ const button = domSelect(".btn").addEventListener("click", (e) => {
   if (inputUsername.length > 15) {
     errorMsgRemover(".username");
     if (domSelectAll(".username > .text-danger").length < 1) {
-      newElm("Must be less than 15 character", "text-danger", ".username");
+      newElm("*Must be less than 15 character", "text-danger", ".username");
     }
   }
 
   // Check if Email is valid
   if (!inputEmail.includes("@") || !inputEmail.endsWith(".com")) {
     if (domSelectAll(".email > .text-danger").length < 1)
-      newElm("Please enter a valid email address!", "text-danger", ".email");
+      newElm("*Please enter a valid email address!", "text-danger", ".email");
     // }
   } else {
     errorMsgRemover(".email");
@@ -72,7 +72,7 @@ const button = domSelect(".btn").addEventListener("click", (e) => {
   // Check if passsword is more than 6 characther
   if (inputPassword.length <= 5) {
     if (domSelectAll(".password > .text-danger").length < 1) {
-      newElm("Must be more than 6 character", "text-danger", ".password");
+      newElm("*Must be more than 6 character", "text-danger", ".password");
     }
   } else {
     errorMsgRemover(".password");
@@ -82,27 +82,38 @@ const button = domSelect(".btn").addEventListener("click", (e) => {
   if (inputConfirmPassword.length <= 5) {
     if (domSelectAll(".confirm > .text-danger").length < 1) {
       errorMsgRemover(".confirm");
-      newElm("Must be more than 6 character", "text-danger", ".confirm");
+      newElm("*Must be more than 6 character", "text-danger", ".confirm");
     }
   }
 
   if (inputConfirmPassword.length > 30) {
     // errorMsgRemover(".confirm");
-    newElm("Must be less than 30 character", "text-danger", ".confirm");
+    newElm("*Must be less than 30 character", "text-danger", ".confirm");
   }
 
   // Check if passwords are same
   if (inputConfirmPassword.length > 5) {
     if (inputPassword == inputConfirmPassword) {
-      if (domSelectAll(".confirm > .text-success").length < 1) {
-        errorMsgRemover(".confirm");
-        newElm("Confirm Password Match", "text-success", ".confirm");
-      }
-    } else {
       errorMsgRemover(".confirm");
-      if (domSelectAll(".confirm > .text-danger").length < 1) {
-        newElm("Confirm password does not match", "text-danger", ".confirm");
-      }
+      newElm("*Confirm Password Match", "text-success", ".confirm");
     }
+  } else {
+    errorMsgRemover(".confirm");
+    if (domSelectAll(".confirm > .text-danger").length < 1) {
+      newElm("*Confirm password does not match", "text-danger", ".confirm");
+    }
+  }
+  // Check if user has agreed to terms
+  if (checkBox == false) {
+    if (domSelectAll(".checkbox > .text-danger").length < 1) {
+      newElm(
+        "*You have to Agreed to Terms",
+        "text-danger terms__error",
+        ".checkbox"
+      );
+    }
+  } else {
+    console.log("hello");
+    errorMsgRemover(".checkbox");
   }
 });

@@ -10,3 +10,9 @@ body {
   position: relative;
   left: 16px;
 }
+
+.terms__error {
+  display: block;
+  position: relative;
+  left: -20px;
+}
