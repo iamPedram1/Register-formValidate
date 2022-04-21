@@ -1,0 +1,12 @@
+body {
+  margin: 10px;
+}
+
+.text-danger {
+  position: relative;
+  left: 16px;
+}
+.text-success {
+  position: relative;
+  left: 16px;
+}

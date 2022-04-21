@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form class="container">
+      <div class="form-group row email">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail3"
+            placeholder="Email"
+          />
+        </div>
+      </div>
+      <div class="form-group row password">
+        <label for="inputPassword3" class="col-sm-2 col-form-label"
+          >Password</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword3"
+            placeholder="Password"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row confirm">
+        <label for="inputPassword3" class="col-sm-2 col-form-label"
+          >Confirm Password</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword4"
+            value="123456"
+            placeholder="Confirm Password"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-2">Checkbox</div>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input
+              class="form-check-input terms"
+              type="checkbox"
+              id="gridCheck1"
+              value="Submit"
+            />
+            <label class="form-check-label" for="gridCheck1">
+              Receive Weekly News & Offers
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input terms"
+              type="checkbox"
+              id="gridCheck1"
+              value="Submit"
+            />
+            <label class="form-check-label" for="gridCheck1">
+              Agree to Terms and Conditions
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+      </div>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
