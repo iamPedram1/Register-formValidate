@@ -35,8 +35,6 @@ function newElm(text, className, parent) {
   parentElement.insertBefore(newSpan, null);
 }
 const button = domSelect(".btn").addEventListener("click", (e) => {
-  e.preventDefault();
-
   // Selecting Inputs Value
   const inputUsername = domSelect("#inputUsername3").value,
     inputEmail = domSelect("#inputEmail3").value,
@@ -72,7 +70,7 @@ const button = domSelect(".btn").addEventListener("click", (e) => {
   // Check if passsword is more than 6 characther
   if (inputPassword.length <= 5) {
     if (domSelectAll(".password > .text-danger").length < 1) {
-      newElm("*Must be more than 6 character", "text-danger", ".password");
+      newElm("*Must be more than 5 character", "text-danger", ".password");
     }
   } else {
     errorMsgRemover(".password");
@@ -81,8 +79,7 @@ const button = domSelect(".btn").addEventListener("click", (e) => {
   // Check confirm input min and max character
   if (inputConfirmPassword.length <= 5) {
     if (domSelectAll(".confirm > .text-danger").length < 1) {
-      errorMsgRemover(".confirm");
-      newElm("*Must be more than 6 character", "text-danger", ".confirm");
+      newElm("*Must be more than 5 character", "text-danger", ".confirm");
     }
   }
 
@@ -96,23 +93,30 @@ const button = domSelect(".btn").addEventListener("click", (e) => {
     if (inputPassword == inputConfirmPassword) {
       errorMsgRemover(".confirm");
       newElm("*Confirm Password Match", "text-success", ".confirm");
-    }
-  } else {
-    errorMsgRemover(".confirm");
-    if (domSelectAll(".confirm > .text-danger").length < 1) {
-      newElm("*Confirm password does not match", "text-danger", ".confirm");
+    } else {
+      if (inputConfirmPassword.length < 30 && inputConfirmPassword > 5) {
+        errorMsgRemover(".confirm");
+        if (domSelectAll(".confirm > .text-danger").length < 1) {
+          newElm("*Confirm password does not match", "text-danger", ".confirm");
+        }
+      }
     }
   }
   // Check if user has agreed to terms
   if (checkBox == false) {
     if (domSelectAll(".checkbox > .text-danger").length < 1) {
       newElm(
-        "*You have to Agreed to Terms",
+        "*You have to Accept the Terms ",
         "text-danger terms__error",
         ".checkbox"
       );
     }
   } else {
     errorMsgRemover(".checkbox");
+  }
+
+  // Disable Button If There is validation error
+  if (domSelectAll(".text-danger").length > 0) {
+    e.preventDefault();
   }
 });
