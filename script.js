@@ -23,7 +23,7 @@ function domSelect(select) {
   return document.querySelector(select);
 }
 
-// ---------------------Validating Form--------------------------------- //
+// ------------------------- Validating Form --------------------------------- //
 
 // Create Element Function
 function newElm(text, className, parent) {
@@ -87,7 +87,7 @@ const button = domSelect(".btn").addEventListener("click", (e) => {
   }
 
   if (inputConfirmPassword.length > 30) {
-    // errorMsgRemover(".confirm");
+    errorMsgRemover(".confirm");
     newElm("*Must be less than 30 character", "text-danger", ".confirm");
   }
 
@@ -113,7 +113,6 @@ const button = domSelect(".btn").addEventListener("click", (e) => {
       );
     }
   } else {
-    console.log("hello");
     errorMsgRemover(".checkbox");
   }
 });
